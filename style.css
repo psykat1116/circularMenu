@@ -1,0 +1,69 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#006bc6,#1ecafc);
+}
+
+.container{
+    position: relative;
+    width:320px;
+    height:320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: blue; */
+}
+
+.container li{
+    position: absolute;
+    left:0;
+    list-style-type: none;
+    transition: 0.5s;
+    transition-delay: calc(0.05s*var(--i));
+    transform-origin: 160px;
+    transform: rotate(0deg) translateX(120px);
+}
+
+.container.active li{
+    transform:rotate(calc(360deg/8*var(--i))) translateX(-40px);
+}
+
+.container li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--clr);
+    color: var(--clr);
+    font-size: 2rem;
+    transform:rotate(calc(360deg/-8*var(--i)))
+}
+
+.container .btn{
+    position: absolute;
+    width:80px;
+    height:80px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #000;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 3rem;
+    transition:transform 1.25s;
+}
+
+.container.active .btn{
+    transform:rotate(315deg);
+}
